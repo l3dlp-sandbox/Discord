@@ -2,6 +2,7 @@ package main
 
 import (
 	"golang.org/x/crypto/ssh/terminal"
+	"./discord"
 	"os"
 	"fmt"
 )
@@ -21,13 +22,16 @@ func main() {
 		}
 
 		Token = string(token)
+		fmt.Println("")
 	}
 
 	if ApiAddress == "" {
-		fmt.Print("Enter your api adress: ")
+		fmt.Print("Enter your api url (http://xxx.xxx): ")
 		var address string
 		fmt.Scan(&address)
 
 		ApiAddress = address
 	}
+
+	discord.Run(Token, ApiAddress)
 }
