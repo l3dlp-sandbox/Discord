@@ -10,13 +10,20 @@ Clone the project :
 $ git clone https://github.com/olivia-ai/Discord.git
 ```
 
-Get a bot token and set it in the environment variable
+Install all dependencies 
+
+```
+$ go get -t -v ./...
+```
+
+You can set the parameters as environment variables
 
 ```
 DISCORD_TOKEN = xxx
+API_ADRESS = http://xxx.xxx
 ```
 
-or set it mannually in #usage
+or just follow the instructions in [usage](#usage)
 
 ## Usage
 
@@ -26,7 +33,7 @@ Run the `main.go`:
 $ go run main.go
 ```
 
-Then follow the instructions for your Discord bot token
+Then follow the instructions
 
 ## Contributing
 
