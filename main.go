@@ -5,6 +5,7 @@ import (
 	"./discord"
 	"os"
 	"fmt"
+	"strings"
 )
 
 var (
@@ -15,7 +16,7 @@ var (
 func main() {
 	// Ask the token if there isn't in the environment variable
 	if Token == "" {
-		fmt.Print("Enter your discord token: ")
+		fmt.Print("Enter Olivia's discord token: ")
 		token, err := terminal.ReadPassword(0)
 		if err != nil {
 			panic(err)
@@ -26,11 +27,24 @@ func main() {
 	}
 
 	if ApiAddress == "" {
-		fmt.Print("Enter your api url (http://xxx.xxx): ")
-		var address string
-		fmt.Scan(&address)
+		fmt.Print("Do you want to use a custom api (C) or the offical (O) ? ")
 
-		ApiAddress = address
+		for {
+			var choice string
+			fmt.Scan(&choice)
+			choice = strings.ToLower(choice)
+
+			if choice == "c" {
+				fmt.Print("Enter the api url (http://xxx.xxx): ")
+				fmt.Scan(&ApiAddress)
+				break
+			} else if choice == "o" {
+				ApiAddress = "https://olivia-api.herokuapp.com"
+				break
+			} else {
+				fmt.Print("Please enter C for a custom api or O for the official: ")
+			}
+		}
 	}
 
 	discord.Run(Token, ApiAddress)
