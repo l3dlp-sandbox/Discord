@@ -2,7 +2,7 @@ package main
 
 import (
 	"golang.org/x/crypto/ssh/terminal"
-	"./discord"
+	"github.com/olivia-ai/Discord/discord"
 	"os"
 	"fmt"
 	"strings"

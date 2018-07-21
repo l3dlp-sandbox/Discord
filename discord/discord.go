@@ -1,7 +1,7 @@
 package discord
 
 import (
-	"../api"
+	"github.com/olivia-ai/Discord/api"
 	"github.com/bwmarrin/discordgo"
 	"fmt"
 	"os"
